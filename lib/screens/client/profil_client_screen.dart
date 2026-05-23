@@ -170,6 +170,14 @@ class _ProfilClientScreenState extends State<ProfilClientScreen> {
             }),
             _menuItem(Icons.star, 'Mes avis', () => _comingSoon(context, 'Mes avis')),
             const SizedBox(height: 16),
+          
+            // Support
+            _sectionTitle('Support'),
+            _menuItem(Icons.help, 'Centre d\'aide', () => _comingSoon(context, 'Centre d\'aide')),
+            _menuItem(Icons.chat, 'Contacter le support', () => _comingSoon(context, 'Contacter le support')),
+            _menuItem(Icons.description, 'Conditions d\'utilisation', () => _comingSoon(context, 'CGU')),
+            _menuItem(Icons.privacy_tip, 'Confidentialité', () => _comingSoon(context, 'Confidentialité')),
+            const SizedBox(height: 24),
 
             // Parrainage
             _sectionTitle('Parrainage'),
@@ -212,13 +220,6 @@ class _ProfilClientScreenState extends State<ProfilClientScreen> {
             ),
             const SizedBox(height: 16),
 
-            // Support
-            _sectionTitle('Support'),
-            _menuItem(Icons.help, 'Centre d\'aide', () => _comingSoon(context, 'Centre d\'aide')),
-            _menuItem(Icons.chat, 'Contacter le support', () => _comingSoon(context, 'Contacter le support')),
-            _menuItem(Icons.description, 'Conditions d\'utilisation', () => _comingSoon(context, 'CGU')),
-            _menuItem(Icons.privacy_tip, 'Confidentialité', () => _comingSoon(context, 'Confidentialité')),
-            const SizedBox(height: 24),
 
             // Déconnexion avec confirmation
             SizedBox(

@@ -26,14 +26,18 @@ class AuthService extends ChangeNotifier {
         'telephone': telephone,
         'password': password,
       });
+      
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         _token = data['token'];
-        _role = data['utilisateur']['role'];
-        _userId = data['utilisateur']['id'];
-        _nom = data['utilisateur']['nom'];
-        _prenom = data['utilisateur']['prenom'];
-        _telephone = data['utilisateur']['telephone'];
+        
+        // Modification ici : on utilise 'user' à la place de 'utilisateur'
+        _role = data['user']['role'];
+        _userId = data['user']['id'];
+        _nom = data['user']['nom'];
+        _prenom = data['user']['prenom'];
+        _telephone = data['user']['telephone'];
+        
         _isAuth = true;
         await _saveSession();
         notifyListeners();
@@ -41,6 +45,9 @@ class AuthService extends ChangeNotifier {
       }
       return false;
     } catch (e) {
+      if (kDebugMode) {
+        print("Erreur critique lors de la connexion : $e"); // Te permettra de voir le crash exact dans la console
+      }
       return false;
     }
   }

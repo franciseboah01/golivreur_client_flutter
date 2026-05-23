@@ -265,7 +265,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Sélecteur de ville
+                        // Sélecteur de ville CORRIGÉ (Compatible Web & Mobile)
                         _loadingZones
                             ? Container(
                                 height: 56,
@@ -281,8 +281,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                 ),
                               )
-                            : DropdownButtonFormField<int>(
-                                value: _zoneId,
+                            : DropdownButtonFormField<String>(
+                                value: _zoneId?.toString(),
                                 dropdownColor: AppColors.noirCarbone,
                                 style: const TextStyle(color: AppColors.blancPur),
                                 decoration: const InputDecoration(
@@ -290,13 +290,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   prefixIcon: Icon(Icons.location_city),
                                 ),
                                 items: _zones
-                                    .map((z) => DropdownMenuItem<int>(
-                                          value: z['id'] as int,
-                                          child: Text(z['nom'].toString(),
-                                              style: const TextStyle(color: AppColors.blancPur)),
+                                    .map((z) => DropdownMenuItem<String>(
+                                          value: z['id'].toString(),
+                                          child: Text(
+                                            z['nom'].toString(),
+                                            style: const TextStyle(color: AppColors.blancPur),
+                                          ),
                                         ))
                                     .toList(),
-                                onChanged: (v) => setState(() => _zoneId = v),
+                                onChanged: (v) {
+                                  setState(() {
+                                    _zoneId = v != null ? int.parse(v) : null;
+                                  });
+                                },
                                 validator: (v) => v == null ? 'Choisissez votre ville' : null,
                               ),
                         const SizedBox(height: 24),
