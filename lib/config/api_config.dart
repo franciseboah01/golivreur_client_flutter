@@ -13,9 +13,15 @@ class ApiConfig {
   }
 
   static const String prodUrl = 'https://golivreur.free.nf/api';
-
+//----------------------------------------------
+// Passez à 'true' pour la production et 'false' pour le développement local en commentant/décommentant les lignes suivantes  
+//----------------------------------------------
   // Passez à 'false' pour le développement local
-  static const bool isProd = false; 
+  //static const bool isProd = false; 
+
+  // Passez à 'true' pour la production
+  static const bool isProd = true; 
+
 
   static String get baseUrl => isProd ? prodUrl : devUrl;
 }
