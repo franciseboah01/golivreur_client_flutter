@@ -12,7 +12,7 @@ class ApiConfig {
     }
   }
 
-  static const String prodUrl = 'https://golivreur.free.nf/api';
+  static const String prodUrl = 'https://golivreur.alwaysdata.net/api';
 //----------------------------------------------
 // Passez à 'true' pour la production et 'false' pour le développement local en commentant/décommentant les lignes suivantes  
 //----------------------------------------------
