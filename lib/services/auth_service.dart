@@ -31,12 +31,12 @@ class AuthService extends ChangeNotifier {
         final data = jsonDecode(response.body);
         _token = data['token'];
         
-        // Modification ici : on utilise 'user' à la place de 'utilisateur'
-        _role = data['user']['role'];
-        _userId = data['user']['id'];
-        _nom = data['user']['nom'];
-        _prenom = data['user']['prenom'];
-        _telephone = data['user']['telephone'];
+         // CORRECTION : utiliser 'utilisateur' au lieu de 'user'
+        _role = data['utilisateur']['role'];
+        _userId = data['utilisateur']['id'];
+        _nom = data['utilisateur']['nom'];
+        _prenom = data['utilisateur']['prenom'];
+        _telephone = data['utilisateur']['telephone'];
         
         _isAuth = true;
         await _saveSession();
